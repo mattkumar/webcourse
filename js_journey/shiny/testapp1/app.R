@@ -1,7 +1,7 @@
 # this is a simple app that demonstrates:
 # loading an external js file (line 11)
-# assigning the actionButton() an on click behavior to execute change(); (line 18)
-# having the content appear in the target (line 22)
+# having shiny-created objects integrate with js
+# it's all html anyway..right?
 
 library(shiny)
 
@@ -10,16 +10,22 @@ ui <- fluidPage(
     # add in a js call
     tags$head(tags$script(src="basic2.js")),
     
-    titlePanel("trying shiny with js"),
+    titlePanel("Raw JS and Shiny!"),
 
     sidebarLayout(
-        sidebarPanel(
-            # action button written in shiny
-            actionButton(inputId = 'go', label = 'Click me', onclick="change();")
-        ),
+        sidebarPanel(),
 
         mainPanel( 
-           p(id = "mytarget", "hello, click to change")
+           h2('Ex 1'),
+           actionButton(inputId = 'go', label = 'Click me', onclick="change();"),
+           p(id = "mytarget", ""),
+           hr(),
+           h2('Ex 2'),
+           numericInput('mynumber', 'Enter a number', 0),
+           actionButton(inputId = 'numbutton', label = 'Try me', onclick="num();"),
+           br(),
+           p(id = "numtarget", '')
+           
         )
     )
 )
