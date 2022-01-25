@@ -24,7 +24,14 @@ ui <- fluidPage(
            numericInput('mynumber', 'Enter a number', 0),
            actionButton(inputId = 'numbutton', label = 'Try me', onclick="num();"),
            br(),
-           p(id = "numtarget", '')
+           p(id = "numtarget", ''),
+           hr(),
+           h3('Ex 3'),
+           actionButton(inputId = 'hide', label = 'Hide Image', onclick="hide();"),
+           actionButton(inputId = 'show', label = 'Show Image', onclick="show();"),
+           actionButton(inputId = 'toggle', label = 'Toggle Image', onclick="toggle();"),
+           img(src = "pizza2.png", id = "mypic")
+           
            
         )
     )
