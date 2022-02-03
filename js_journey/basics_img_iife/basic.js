@@ -10,7 +10,8 @@ function findfood() {
   // auto convert it to lower case that makes the conditional processing below robust
   var tmp = document.getElementById("choice").value.toLowerCase();
   
-  if (tmp === "pizza") {
+  // ifelse block
+  /*if (tmp === "pizza") {
     document.getElementById("menudisp").src = 'pizza.png';
   } else if (tmp === "fries") {
     document.getElementById("menudisp").src = 'fries.jpg';
@@ -18,9 +19,38 @@ function findfood() {
     alert('Enter an item and I will look for it!'); 
   } else {
     alert('I did not find your item!');
+  }*/
+  
+  // try again using switch
+  switch(tmp) {
+    
+    case "pizza1":
+      document.getElementById("menudisp").src = 'pizza.png';
+      break;
+    
+    case "fries":
+      document.getElementById("menudisp").src = 'fries.jpg';
+      break;
+      
+    case "":
+      alert('Enter an item and I will look for it!');
+      break;
+      
+    default:
+      alert('I did not find your item!');
+      break;
+    
   }
+  
+  
 }
 
-// unobtrsuive event binding
-// this will only work for the first button defined apparently
-document.querySelector("button").addEventListener("click", findfood);
+ 
+function valid() {
+
+  var x = document.forms["myForm"]["fname"].value;
+  if(x="") {
+    alert("common");
+    return false;
+  }
+}
